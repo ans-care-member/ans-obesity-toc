@@ -1,190 +1,414 @@
-<!DOCTYPE html>
-<html lang="ja"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>肥満症コラム目次｜ANS. magazine</title><meta name="robots" content="noindex">
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500;700&display=swap" rel="stylesheet">
+<!doctype html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>投与日チェック</title>
+
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500;700&display=swap">
 <style>
-body{margin:0;padding:8px 4px;background:#FFFFFF}
-.ans-toc3{
-  --primary:#FF4E00;--primary-dk:#E63F00;--bg-primary:#FCE8E5;
-  --accent:#C09A85;--accent-02:#EBE5DB;--accent-03:#F7F5F2;
-  --black-main:#212121;--black-sub:#616161;--placeholder:#9E9E9E;--border:#E0E0E0;--bg-black:#FAFAFA;--white:#FFFFFF;
-  --d1:#FFC400;--d2:#2196F3;--d3:#E64A4A;--d4:#0BA908;
-  --xxs:4px;--xs:8px;--sm:12px;--md:16px;--lg:24px;--xl:32px;--xxl:40px;--xxxl:64px;
-  max-width:560px;margin:0 auto;color:var(--black-sub);
-  font-family:"Noto Sans JP","Hiragino Sans","Hiragino Kaku Gothic ProN","Yu Gothic",sans-serif;font-weight:500}
-.ans-toc3 *{box-sizing:border-box}
-.ans-toc3 a{text-decoration:none!important;color:inherit}
-.ans-toc3 ul{list-style:none;margin:0;padding:0}
-.ans-toc3 li{margin:0!important;padding:0!important}
-.ans-toc3 li:before{display:none!important}
-.ans-toc3 p{margin:0!important;padding:0!important}
-.ans-toc3 .ic{width:20px;height:20px;flex:0 0 auto}
-
-/* Filter */
-.ans-toc3 .filter{background:var(--accent-03);border-radius:8px;padding:var(--lg) var(--md);margin-bottom:var(--xxl)}
-.ans-toc3 .f-ttl{display:flex;align-items:center;justify-content:center;gap:var(--xs);color:var(--black-main);font-size:18px;font-weight:700;line-height:1.2}
-.ans-toc3 .f-sub{text-align:center;font-size:12px;line-height:1.5;margin:var(--xs) 0 var(--md)!important}
-.ans-toc3 input{position:absolute;opacity:0;pointer-events:none}
-.ans-toc3 .chips{display:grid;grid-template-columns:repeat(2,1fr);gap:var(--xs)}
-.ans-toc3 .chips label{display:flex;flex-direction:column;align-items:center;gap:var(--xxs);background:var(--white);border:1px solid var(--border);border-radius:8px;padding:var(--sm) var(--xs);cursor:pointer;transition:.2s;color:var(--black-sub)}
-.ans-toc3 .chips label:hover{border-color:var(--accent)}
-.ans-toc3 .chips .ic{width:24px;height:24px}
-.ans-toc3 .c-name{font-size:14px;font-weight:700;line-height:1;color:var(--black-main)}
-.ans-toc3 .c-sub{font-size:10px;line-height:1;color:var(--placeholder)}
-.ans-toc3 .chips label.all{grid-column:1/-1;flex-direction:row;justify-content:center;gap:var(--xs);padding:var(--sm)}
-.ans-toc3 .chips label.all .ic{width:20px;height:20px}
-.ans-toc3:has(#ft0:checked) label[for=ft0],
-.ans-toc3:has(#ft1:checked) label[for=ft1],
-.ans-toc3:has(#ft2:checked) label[for=ft2],
-.ans-toc3:has(#ft3:checked) label[for=ft3],
-.ans-toc3:has(#ft4:checked) label[for=ft4]{border-color:var(--primary);background:var(--bg-primary);color:var(--primary)}
-.ans-toc3:has(#ft0:checked) label[for=ft0] .c-name,
-.ans-toc3:has(#ft1:checked) label[for=ft1] .c-name,
-.ans-toc3:has(#ft2:checked) label[for=ft2] .c-name,
-.ans-toc3:has(#ft3:checked) label[for=ft3] .c-name,
-.ans-toc3:has(#ft4:checked) label[for=ft4] .c-name{color:var(--primary-dk)}
-.ans-toc3 .f-note{text-align:center;font-size:10px;line-height:1.5;color:var(--placeholder);margin-top:var(--md)!important}
-.ans-toc3:has(#ft1:checked) .card-li:not(.t1):not(.tall),
-.ans-toc3:has(#ft2:checked) .card-li:not(.t2):not(.tall),
-.ans-toc3:has(#ft3:checked) .card-li:not(.t3):not(.tall),
-.ans-toc3:has(#ft4:checked) .card-li:not(.t4):not(.tall){display:none}
-
-/* Step */
-.ans-toc3 .step{margin-bottom:var(--xxl)}
-.ans-toc3 .s-head{border-left:4px solid var(--primary);padding-left:var(--sm);margin-bottom:var(--md)}
-.ans-toc3 .s-no{display:block;font-size:12px;font-weight:700;line-height:1;letter-spacing:.08em;color:var(--primary);margin-bottom:var(--xs)}
-.ans-toc3 .step h3{margin:0!important;padding:0!important;border:0!important;background:none!important;font-size:22px;font-weight:700;line-height:1.2;color:var(--black-main)}
-.ans-toc3 .step h3:before,.ans-toc3 .step h3:after{display:none!important}
-.ans-toc3 .goal{font-size:14px;line-height:1.6;margin-top:var(--xs)!important}
-
-/* Card */
-.ans-toc3 .cards{display:grid;grid-template-columns:1fr;gap:var(--md)}
-.ans-toc3 .card{display:flex;flex-direction:column;height:100%;background:var(--white);border:1px solid var(--border);border-radius:8px;overflow:hidden;transition:.2s}
-.ans-toc3 a.card:hover{border-color:var(--primary)}
-.ans-toc3 a.card:hover img{transform:scale(1.03)}
-.ans-toc3 .fig{display:block;background:var(--accent-03);overflow:hidden;border-bottom:1px solid var(--border)}
-.ans-toc3 .fig img{display:block;width:100%;height:auto;transition:.3s;margin:0!important}
-.ans-toc3 .noimg{aspect-ratio:16/9;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:var(--xs);background:var(--accent-02);color:var(--accent)}
-.ans-toc3 .noimg .ic{width:32px;height:32px}
-.ans-toc3 .noimg b{font-size:12px;letter-spacing:.08em}
-.ans-toc3 .body{display:flex;flex-direction:column;gap:var(--xs);padding:var(--sm) var(--md) var(--md)}
-.ans-toc3 .no{font-size:10px;font-weight:700;line-height:1;letter-spacing:.06em;color:var(--accent)}
-.ans-toc3 .ttl{font-size:14px;font-weight:500;line-height:1.6;color:var(--black-sub);display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.ans-toc3 .tags{display:flex;flex-wrap:wrap;gap:var(--xxs)}
-.ans-toc3 .tag{display:inline-flex;align-items:center;gap:var(--xxs);font-size:10px;font-weight:700;line-height:1;color:var(--black-sub);background:var(--bg-black);border:1px solid var(--border);border-radius:99px;padding:var(--xxs) var(--xs)}
-.ans-toc3 .dot{display:inline-block;width:6px;height:6px;border-radius:50%}
-.ans-toc3 .d0{background:var(--placeholder)}
-.ans-toc3 .d1{background:var(--d1)}.ans-toc3 .d2{background:var(--d2)}.ans-toc3 .d3{background:var(--d3)}.ans-toc3 .d4{background:var(--d4)}
-.ans-toc3 .soon .card{border-style:dashed;background:var(--bg-black)}
-.ans-toc3 .soon .noimg{background:var(--bg-black);color:var(--placeholder)}
-.ans-toc3 .soon .ttl{color:var(--placeholder)}
-@media(min-width:640px){
+body { margin: 0; }
+/* Layout: one narrow column, input card on top, result card below. Phone first. */
+:root {
+  --bg: #FAFAFA;
+  --surface: #FFFFFF;
+  --surface-2: #F7F5F2;
+  --fg: #212121;
+  --fg-sub: #616161;
+  --border: #E0E0E0;
+  --primary: #D93700;
+  --primary-hover: #C12700;
+  --primary-ink: #FFFFFF;
+  --primary-soft: #FCE8E5;
+  --primary-text: #E63F00;
+  --ok: #008900;
+  --ok-bg: #E5F4E4;
+  --warn-edge: #FFB600;
+  --warn-bg: #FFF8E0;
+  --warn-ink: #6B4A00;
+  --alert: #DB2D2F;
+  --alert-bg: #FEEAED;
+  --focus: #2196F3;
+  --green: #008900; --green-hover: #006B00; --green-ink: #FFFFFF;
+  --font: "Noto Sans JP", "Hiragino Sans", "Yu Gothic", "Meiryo", sans-serif;
+  --xxs: 4px; --xs: 8px; --sm: 12px; --md: 16px; --lg: 24px; --xl: 32px;
 }
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1A1A1A; --surface: #242424; --surface-2: #2E2B28; --fg: #FAFAFA; --fg-sub: #BDBDBD;
+    --border: #424242; --primary: #FF6832; --primary-hover: #FF8250; --primary-ink: #212121;
+    --primary-soft: #3A2218; --primary-text: #FF8250; --ok: #5FD35C; --ok-bg: #16301A;
+    --warn-edge: #FFCC17; --warn-bg: #352C0E; --warn-ink: #FFE08A; --alert: #FF7B7D; --alert-bg: #3A1B1C;
+    --focus: #64B5F6; --green: #1F8A1C; --green-hover: #2A9F27; --green-ink: #FFFFFF; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #1A1A1A; --surface: #242424; --surface-2: #2E2B28; --fg: #FAFAFA; --fg-sub: #BDBDBD;
+  --border: #424242; --primary: #FF6832; --primary-hover: #FF8250; --primary-ink: #212121;
+  --primary-soft: #3A2218; --primary-text: #FF8250; --ok: #5FD35C; --ok-bg: #16301A;
+  --warn-edge: #FFCC17; --warn-bg: #352C0E; --warn-ink: #FFE08A; --alert: #FF7B7D; --alert-bg: #3A1B1C;
+  --focus: #64B5F6; --green: #1F8A1C; --green-hover: #2A9F27; --green-ink: #FFFFFF; color-scheme: dark;
+}
+* { box-sizing: border-box; }
+[hidden] { display: none !important; }
+body { background: var(--bg); color: var(--fg); font-family: var(--font); font-weight: 500; font-size: 16px; line-height: 1.7; padding-inline: var(--md); padding-block: var(--lg) var(--xl); }
+.app { max-width: 480px; margin-inline: auto; display: flex; flex-direction: column; gap: var(--md); }
+h1 { font-size: 24px; line-height: 1.2; font-weight: 700; margin: 0; text-wrap: balance; }
+.lead { margin: var(--xs) 0 0; font-size: 14px; line-height: 1.6; color: var(--fg-sub); }
+.card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: var(--md); display: flex; flex-direction: column; gap: var(--md); min-width: 0; }
+.fields { display: grid; grid-template-columns: 1fr; gap: var(--sm); }
+.field { display: flex; flex-direction: column; gap: var(--xxs); min-width: 0; }
+label, .label { font-size: 12px; line-height: 1.5; font-weight: 700; color: var(--fg-sub); }
+input[type="date"], input[type="time"] { font: inherit; font-size: 16px; font-weight: 500; color: var(--fg); background: var(--surface); border: 1px solid var(--border); border-radius: 8px; height: 48px; padding-inline: var(--sm); width: 100%; min-width: 0; }
+.date-row { position: relative; display: flex; align-items: center; gap: var(--xs); min-width: 0; height: 48px; border: 1px solid var(--border); border-radius: 8px; background: var(--surface); padding-inline: var(--sm); }
+.date-row:focus-within { outline: 3px solid var(--focus); outline-offset: 2px; }
+.date-text { flex: 1 1 auto; font-size: 16px; line-height: 1.4; font-weight: 500; font-variant-numeric: tabular-nums; pointer-events: none; }
+.date-text .ph { color: var(--fg-sub); }
+.dow { color: var(--primary-text); font-weight: 700; }
+.cal { flex: none; color: var(--fg-sub); pointer-events: none; }
+.date-row input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; border: 0; padding: 0; font-size: 16px; }
+.now-line { margin: 0; font-size: 14px; line-height: 1.6; color: var(--fg-sub); font-variant-numeric: tabular-nums; }
+.now-line b { color: var(--fg); font-size: 16px; }
+.actions button { font-size: 15px; padding-inline: var(--xs); min-width: 0; }
+.hint { font-size: 12px; line-height: 1.5; color: var(--fg-sub); margin: 0; }
+.actions { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: var(--xs); }
+button { font-family: var(--font); font-weight: 700; font-size: 16px; line-height: 1.2; min-height: 52px; padding: var(--sm); border-radius: 8px; border: 2px solid var(--primary); cursor: pointer; display: flex; align-items: center; justify-content: center; gap: var(--xs); background: var(--surface); color: var(--primary-text); }
+button[aria-pressed="true"] { background: var(--primary); color: var(--primary-ink); border-color: var(--primary); }
+button:hover { border-color: var(--primary-hover); }
+button[aria-pressed="true"]:hover { background: var(--primary-hover); }
+:focus-visible { outline: 3px solid var(--focus); outline-offset: 2px; }
+button svg { flex: none; }
+.banner { border-radius: 8px; padding: var(--sm) var(--md); display: flex; gap: var(--sm); align-items: flex-start; border: 1px solid; }
+.banner svg { flex: none; margin-top: 3px; }
+.banner h2 { margin: 0; font-size: 18px; line-height: 1.4; font-weight: 700; }
+.banner p { margin: var(--xxs) 0 0; font-size: 14px; line-height: 1.6; font-weight: 500; }
+.banner.ok { background: var(--ok-bg); border-color: var(--ok); color: var(--fg); }
+.banner.ok svg { color: var(--ok); }
+.banner.warn { background: var(--warn-bg); border-color: var(--warn-edge); color: var(--fg); }
+.banner.warn svg { color: var(--warn-ink); }
+.banner.skip { background: var(--alert-bg); border-color: var(--alert); color: var(--fg); }
+.banner.skip svg { color: var(--alert); }
+.banner.info { background: var(--surface-2); border-color: var(--border); color: var(--fg); }
+.banner.info svg { color: var(--fg-sub); }
+.strip, .strip-today { display: grid; grid-template-columns: repeat(8, minmax(0, 1fr)); gap: var(--xxs); }
+.cell { border-radius: 8px; padding: var(--xs) 0; text-align: center; display: flex; flex-direction: column; align-items: center; border: 1px solid transparent; font-variant-numeric: tabular-nums; }
+.cell .w { font-size: 12px; line-height: 1.5; color: var(--fg-sub); }
+.cell .n { font-size: 16px; line-height: 1.4; font-weight: 700; }
+.cell .t { font-size: 10px; line-height: 1.4; font-weight: 700; }
+.cell.plan { border: 2px solid var(--primary); }
+.cell.plan .t { color: var(--primary-text); }
+.cell.good { background: var(--ok-bg); } .cell.good .t { color: var(--ok); }
+.cell.edge { background: var(--warn-bg); border-color: var(--warn-edge); } .cell.edge .t { color: var(--warn-ink); }
+.cell.bad { background: var(--alert-bg); } .cell.bad .t { color: var(--alert); }
+.cell.next { background: var(--primary); } .cell.next .w, .cell.next .n, .cell.next .t { color: var(--primary-ink); }
+.strip-today { margin-top: calc(-1 * var(--xs)); }
+.tag-today { font-size: 10px; line-height: 1.4; font-weight: 700; text-align: center; color: var(--primary-text); }
+.legend { display: flex; flex-wrap: wrap; gap: var(--xs) var(--md); font-size: 12px; line-height: 1.5; color: var(--fg-sub); margin: 0; padding: 0; list-style: none; }
+.legend i { display: inline-block; width: 12px; height: 12px; border-radius: 3px; margin-right: var(--xxs); vertical-align: -1px; border: 1px solid transparent; }
+.facts { margin: 0; display: grid; grid-template-columns: auto 1fr; gap: var(--xs) var(--md); font-size: 14px; line-height: 1.6; }
+.facts dt { color: var(--fg-sub); }
+.facts dd { margin: 0; font-weight: 700; font-variant-numeric: tabular-nums; }
+.sub-h { margin: 0; font-size: 14px; line-height: 1.6; font-weight: 700; }
+.upcoming { display: flex; flex-wrap: wrap; gap: var(--xs); margin: 0; padding: 0; list-style: none; }
+.upcoming li { background: var(--surface-2); border-radius: 8px; padding: var(--xs) var(--sm); font-size: 14px; line-height: 1.6; font-weight: 700; font-variant-numeric: tabular-nums; }
+.cal-link { margin: 0; font-size: 14px; line-height: 1.6; }
+.btn-link { display: flex; align-items: center; justify-content: center; gap: var(--xs); min-height: 52px; padding: var(--sm); border-radius: 8px; background: var(--surface); color: var(--primary-text); border: 2px solid var(--primary); font-size: 16px; line-height: 1.2; font-weight: 700; text-decoration: none; }
+.btn-link.green { background: var(--green); border-color: var(--green); color: var(--green-ink); }
+.btn-link.green:hover { background: var(--green-hover); border-color: var(--green-hover); }
+.btn-link:hover { border-color: var(--primary-hover); }
+.pager { display: grid; grid-template-columns: 1fr 1fr; gap: var(--xs); }
+.pager button { min-height: 48px; font-size: 14px; border-width: 1px; border-color: var(--border); color: var(--fg); }
+.pager button:disabled { opacity: .4; cursor: default; }
+.dose-list { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: var(--xs); }
+.dose-list li { background: var(--surface-2); border-radius: 8px; padding: var(--sm) var(--md); font-size: 16px; line-height: 1.5; font-weight: 700; font-variant-numeric: tabular-nums; }
+.chips { display: grid; grid-template-columns: repeat(auto-fill, minmax(104px, 1fr)); gap: var(--xs); }
+.chips button { min-height: 56px; flex-direction: column; gap: 0; font-size: 16px; border-width: 1px; border-color: var(--border); color: var(--fg); }
+.chips button small { font-size: 10px; line-height: 1.4; font-weight: 700; color: var(--fg-sub); }
+.chips button[aria-pressed="true"] { border-width: 2px; border-color: var(--primary); background: var(--primary-soft); color: var(--fg); }
+.chips button[aria-pressed="true"] small { color: var(--primary-text); }
+.notes { margin: 0; padding-left: var(--lg); font-size: 14px; line-height: 1.6; color: var(--fg); display: flex; flex-direction: column; gap: var(--xxs); }
+.foot { font-size: 12px; line-height: 1.6; color: var(--fg-sub); margin: 0; }
+.foot a { color: var(--primary-text); }
+@media (prefers-reduced-motion: no-preference) { button { transition: background-color .15s, border-color .15s; } }
+@media (max-width: 380px) {
+  body { padding-inline: var(--xs); }
+  .card { padding: var(--sm); }
+  h1 { font-size: 22px; }
+  .date-text { font-size: 15px; }
+  .cell .w { font-size: 10px; }
+  .cell .n { font-size: 13px; }
+  .cell .t, .tag-today { font-size: 9px; }
+  .strip, .strip-today { gap: 2px; }
+  .banner { padding: var(--sm); }
+  .pager button { font-size: 13px; padding-inline: var(--xs); }
+}
+@media (min-width: 440px) { .fields.two { grid-template-columns: 1fr 1fr; } }
+.sec-title { margin: 0; font-size: 18px; line-height: 1.4; font-weight: 700; }
+.guide-title { margin: 0; font-size: 20px; line-height: 1.4; font-weight: 700; }
+.guide { display: flex; flex-direction: column; gap: var(--md); min-width: 0; }
+.dose-list .tm { margin-left: var(--xs); }
+.result { display: flex; flex-direction: column; gap: var(--md); min-width: 0; }
+.divider { border: 0; border-top: 1px solid var(--border); margin: 0; }
+</style>
 
-/* Check */
-.ans-toc3 .check{background:var(--white);border:1px solid var(--border);border-top:4px solid var(--primary);border-radius:8px;padding:var(--lg) var(--md);margin-bottom:var(--lg);text-align:center}
-.ans-toc3 .check [hidden]{display:none!important}
-.ans-toc3 .c-eyebrow{display:flex;align-items:center;justify-content:center;gap:var(--xxs);font-size:12px;font-weight:700;line-height:1;letter-spacing:.06em;color:var(--primary)}
-.ans-toc3 .c-ttl{font-size:20px;font-weight:700;line-height:1.2;color:var(--black-main);margin-top:var(--sm)!important}
-.ans-toc3 .c-time{font-size:12px;line-height:1.5;color:var(--placeholder);margin:var(--xs) 0 var(--md)!important}
-.ans-toc3 button{font-family:inherit;cursor:pointer}
-.ans-toc3 .btn-primary{display:block;width:100%;border:0;border-radius:8px;background:var(--primary);color:var(--white);font-size:16px;font-weight:700;line-height:1.2;padding:var(--md);transition:.2s}
-.ans-toc3 .btn-primary:hover{background:var(--primary-dk)}
-.ans-toc3 .btn-text{display:inline-block;border:0;background:none;color:var(--black-sub);font-size:12px;font-weight:700;line-height:1;padding:var(--sm);margin-top:var(--xs);text-decoration:underline}
-.ans-toc3 .bar{height:4px;border-radius:99px;background:var(--bg-primary);overflow:hidden;margin-bottom:var(--md)}
-.ans-toc3 .bar i{display:block;height:100%;width:25%;background:var(--primary);transition:.3s}
-.ans-toc3 .q-no{font-size:12px;font-weight:700;line-height:1;color:var(--primary)}
-.ans-toc3 .q-ttl{font-size:18px;font-weight:700;line-height:1.5;color:var(--black-main);margin:var(--xs) 0 var(--md)!important}
-.ans-toc3 .opts{display:grid;gap:var(--xs);text-align:left}
-.ans-toc3 .opt{display:block;width:100%;background:var(--white);border:1px solid var(--border);border-radius:8px;padding:var(--md);font-size:14px;font-weight:500;line-height:1.6;color:var(--black-sub);text-align:left;transition:.2s}
-@media(hover:hover){.ans-toc3 .opt:hover{border-color:var(--primary);background:var(--bg-primary);color:var(--black-main)}}
-.ans-toc3 .opt:active{border-color:var(--primary);background:var(--bg-primary)}
-.ans-toc3 .r-ic{display:inline-flex;align-items:center;justify-content:center;width:64px;height:64px;border-radius:50%;background:var(--bg-primary);color:var(--primary)}
-.ans-toc3 .r-ic .ic{width:32px;height:32px}
-.ans-toc3 .r-lead{font-size:14px;line-height:1.6;margin-top:var(--sm)!important}
-.ans-toc3 .r-name{font-size:24px;font-weight:700;line-height:1.2;color:var(--black-main);margin-top:var(--xxs)!important}
-.ans-toc3 .r-sub{font-size:12px;line-height:1.5;color:var(--black-sub);margin-top:var(--xs)!important}
-.ans-toc3 .r-dl{text-align:left;background:var(--accent-03);border-radius:8px;padding:var(--md);margin:var(--md) 0}
-.ans-toc3 .r-dl dt{font-size:12px;font-weight:700;line-height:1;color:var(--accent);margin-top:var(--md)}
-.ans-toc3 .r-dl dt:first-child{margin-top:0}
-.ans-toc3 .r-dl dd{margin:var(--xs) 0 0;font-size:14px;line-height:1.6;color:var(--black-main)}
-.ans-toc3 .c-note{font-size:10px;line-height:1.5;color:var(--placeholder);text-align:left;margin-top:var(--md)!important}
-</style></head><body>
-<div class="ans-toc3">
-<div class="check"><div class="c-start"><p class="c-eyebrow"><svg class="ic" aria-hidden="true" width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M196.89,130.94,144.4,111.6,125.06,59.11a13.92,13.92,0,0,0-26.12,0L79.6,111.6,27.11,130.94a13.92,13.92,0,0,0,0,26.12L79.6,176.4l19.34,52.49a13.92,13.92,0,0,0,26.12,0L144.4,176.4l52.49-19.34a13.92,13.92,0,0,0,0-26.12Zm-4.15,14.86-55.08,20.3a6,6,0,0,0-3.56,3.56l-20.3,55.08a1.92,1.92,0,0,1-3.6,0L89.9,169.66a6,6,0,0,0-3.56-3.56L31.26,145.8a1.92,1.92,0,0,1,0-3.6l55.08-20.3a6,6,0,0,0,3.56-3.56l20.3-55.08a1.92,1.92,0,0,1,3.6,0l20.3,55.08a6,6,0,0,0,3.56,3.56l55.08,20.3a1.92,1.92,0,0,1,0,3.6ZM146,40a6,6,0,0,1,6-6h18V16a6,6,0,0,1,12,0V34h18a6,6,0,0,1,0,12H182V64a6,6,0,0,1-12,0V46H152A6,6,0,0,1,146,40ZM246,88a6,6,0,0,1-6,6H230v10a6,6,0,0,1-12,0V94H208a6,6,0,0,1,0-12h10V72a6,6,0,0,1,12,0V82h10A6,6,0,0,1,246,88Z"/></svg>カラダタイプチェック</p><p class="c-ttl">4つの質問で、あなたに近いタイプがわかります</p><p class="c-time">所要時間 約1分</p><button type="button" class="btn-primary js-start">チェックをはじめる</button></div><div class="c-quiz" hidden><div class="bar"><i></i></div><div class="q" data-q="0" hidden><p class="q-no">Q1 / 4</p><p class="q-ttl">ついついやってしまいがちな「食事パターン」は？</p><div class="opts"><button type="button" class="opt" data-t="1">ガッツリ・味の濃いもの・油っこいものが好きで、食べ過ぎることがある</button><button type="button" class="opt" data-t="2">イライラやストレスが溜まるとドカ食いやお酒に走る</button><button type="button" class="opt" data-t="3">冷たいものや甘いものが好き。食事時間が不規則</button><button type="button" class="opt" data-t="4">食事量は多くないのに重だるい。食後にだるく眠くなる</button></div></div><div class="q" data-q="1" hidden><p class="q-no">Q2 / 4</p><p class="q-ttl">気分やお腹・睡眠のコンディションで一番当てはまるものは？</p><div class="opts"><button type="button" class="opt" data-t="1">暑がりで汗っかき。便秘になりやすい</button><button type="button" class="opt" data-t="2">気分の波が大きい。お腹が張りやすい・スッキリしない日が多い</button><button type="button" class="opt" data-t="3">生理痛が重い・肩こりや頭痛、肌の乾燥・くすみが気になる</button><button type="button" class="opt" data-t="4">疲れやすく体力がない。無理をすると体調を崩しやすい</button></div></div><div class="q" data-q="2" hidden><p class="q-no">Q3 / 4</p><p class="q-ttl">身体の「冷えや巡り」の症状で気になるものは？</p><div class="opts"><button type="button" class="opt" data-t="1">体に熱がこもりやすく、顔が赤くなりやすい・肌荒れが気になる</button><button type="button" class="opt" data-t="2">ストレスを感じると肩や脇腹が張り、ため息が増える</button><button type="button" class="opt" data-t="3">下半身や手足の冷え・凝りが気になる</button><button type="button" class="opt" data-t="4">夕方に足がパンパンにむくむ・全身が重だるい</button></div></div><div class="q" data-q="3" hidden><p class="q-no">Q4 / 4</p><p class="q-ttl">お腹の調子や体力の傾向に一番近いものは？</p><div class="opts"><button type="button" class="opt" data-t="1">しっかり食べて胃腸は強めだが、たまにガッツリ便秘になる</button><button type="button" class="opt" data-t="2">ガンバりすぎるとすぐお腹が張ってガスが溜まる</button><button type="button" class="opt" data-t="3">便の色が濃く、硬い便になりやすい</button><button type="button" class="opt" data-t="4">胃腸がデリケートで、お腹を壊しやすい</button></div></div><button type="button" class="btn-text js-back">ひとつ前に戻る</button></div><div class="c-result" hidden><div class="r" data-r="1" hidden><span class="r-ic"><svg class="ic" aria-hidden="true" width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224,106H213.77a86,86,0,0,0-171.54,0H32a6,6,0,0,0-6,6,102.35,102.35,0,0,0,56,91.06V208a14,14,0,0,0,14,14h64a14,14,0,0,0,14-14v-4.94A102.35,102.35,0,0,0,230,112,6,6,0,0,0,224,106ZM174.24,54.29a74.15,74.15,0,0,1,8.15,7.6A85.89,85.89,0,0,0,130.84,106H97.34A74.24,74.24,0,0,1,168,54C170.08,54,172.17,54.11,174.24,54.29ZM190.3,72.14A73.49,73.49,0,0,1,201.74,106H144.48A73.89,73.89,0,0,1,190.3,72.14ZM128,38a73.68,73.68,0,0,1,26.8,5,86.32,86.32,0,0,0-69.94,63H54.26A74.09,74.09,0,0,1,128,38Zm37.5,155.84a6,6,0,0,0-3.5,5.46V208a2,2,0,0,1-2,2H96a2,2,0,0,1-2-2v-8.7a6,6,0,0,0-3.5-5.46A90.35,90.35,0,0,1,38.2,118H217.8A90.35,90.35,0,0,1,165.5,193.84Z"/></svg></span><p class="r-lead">あなたに近いのは</p><p class="r-name">たべものエネルギータイプ</p><p class="r-sub" hidden></p><dl class="r-dl"><dt>あなたの素晴らしい点</dt><dd>食事をしっかり美味しく楽しむエネルギーがあります！</dd><dt>次へのSTEP</dt><dd>「無理に減らす」のではなく「身体が喜ぶ質を選ぶ」意識を。</dd><dt>ポイント</dt><dd>「今日は何を選ぼうかな」と小さく認識して行動するだけでOKです。</dd></dl></div><div class="r" data-r="2" hidden><span class="r-ic"><svg class="ic" aria-hidden="true" width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M182,184a30,30,0,0,1-30,30c-12.9,0-25.36-8.38-29.63-19.92a6,6,0,0,1,11.26-4.16C136.13,196.69,144.2,202,152,202a18,18,0,0,0,0-36H40a6,6,0,0,1,0-12H152A30,30,0,0,1,182,184ZM150,72a30,30,0,0,0-30-30c-12.9,0-25.36,8.38-29.63,19.92a6,6,0,1,0,11.26,4.16C104.13,59.31,112.2,54,120,54a18,18,0,0,1,0,36H24a6,6,0,0,0,0,12h96A30,30,0,0,0,150,72Zm58,2c-12.9,0-25.36,8.38-29.63,19.92a6,6,0,1,0,11.26,4.16C192.13,91.31,200.2,86,208,86a18,18,0,0,1,0,36H32a6,6,0,0,0,0,12H208a30,30,0,0,0,0-60Z"/></svg></span><p class="r-lead">あなたに近いのは</p><p class="r-name">ストレス・巡りタイプ</p><p class="r-sub" hidden></p><dl class="r-dl"><dt>あなたの素晴らしい点</dt><dd>日々がんばり屋さんで、自分の状況と一生懸命に向き合っています！</dd><dt>次へのSTEP</dt><dd>「がんばりすぎ」を少しゆるめて、脳や心にホッと一息つく余裕を。</dd><dt>ポイント</dt><dd>食欲は意志の弱さではなく、「お疲れのサイン」かもしれません。まずは「疲れてるな」と気づくことから始めてみましょう。</dd></dl></div><div class="r" data-r="3" hidden><span class="r-ic"><svg class="ic" aria-hidden="true" width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M248.29,75.82l-22.58,7.33,13.95,19.21a6,6,0,1,1-9.7,7.06L216,90.21l-14,19.21a6,6,0,1,1-9.7-7.06l13.95-19.21-22.58-7.33a6,6,0,1,1,3.71-11.41L210,71.74V48a6,6,0,0,1,12,0V71.74l22.58-7.33a6,6,0,0,1,3.71,11.41ZM150,184a30,30,0,1,1-36-29.4V120a6,6,0,0,1,12,0v34.6A30.05,30.05,0,0,1,150,184Zm-12,0a18,18,0,1,0-18,18A18,18,0,0,0,138,184Zm44,0A62,62,0,1,1,82,135V48a38,38,0,0,1,76,0v87A62.06,62.06,0,0,1,182,184Zm-12,0a50.07,50.07,0,0,0-21.43-41A6,6,0,0,1,146,138V48a26,26,0,0,0-52,0v90A6,6,0,0,1,91.43,143,50,50,0,1,0,170,184Z"/></svg></span><p class="r-lead">あなたに近いのは</p><p class="r-name">冷え・めぐりケアタイプ</p><p class="r-sub" hidden></p><dl class="r-dl"><dt>あなたの素晴らしい点</dt><dd>身体の小さな変化や不調にしっかり気づき、整えようとする気持ちがあります！</dd><dt>次へのSTEP</dt><dd>「一口の水分」や「日常のちょっとした動き」で、巡りを意識してみましょう。</dd><dt>ポイント</dt><dd>大きな変化を一気に起こす必要はありません。生活の中で「巡り」をふと思い出すことが第一歩です。</dd></dl></div><div class="r" data-r="4" hidden><span class="r-ic"><svg class="ic" aria-hidden="true" width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M221.45,40.19a6,6,0,0,0-5.64-5.64C140.43,30.11,80.14,52.71,54.53,95c-17.44,28.79-16.76,62.8,1.79,96.2L35.76,211.76a6,6,0,1,0,8.48,8.48L64.8,199.68c17.27,9.59,34.7,14.41,51.49,14.41A85.38,85.38,0,0,0,161,201.47C203.29,175.86,225.88,115.57,221.45,40.19Zm-66.66,151c-24.08,14.58-52.64,14.37-81.13-.39l90.59-90.59a6,6,0,0,0-8.48-8.48L65.18,182.34c-14.76-28.49-15-57-.39-81.13,22.68-37.43,76.63-57.8,145-54.95C212.59,114.58,192.22,168.54,154.79,191.21Z"/></svg></span><p class="r-lead">あなたに近いのは</p><p class="r-name">いたわり栄養補給タイプ</p><p class="r-sub" hidden></p><dl class="r-dl"><dt>あなたの素晴らしい点</dt><dd>忙しい毎日の中でも、身体を健やかに維持しようと一生懸命がんばっています！</dd><dt>次へのSTEP</dt><dd>「食べない引き算」ではなく「カラダに必要な栄養をやさしく補う」ケアを。</dd><dt>ポイント</dt><dd>無理な制限は負担になることもあります。今の自分の頑張りを認めて、良い栄養をプラスしてみましょう。</dd></dl></div><button type="button" class="btn-primary js-show">このタイプの記事を見る</button><button type="button" class="btn-text js-retry">もう一度チェックする</button></div><p class="c-note">※本チェックは医学的な診断を行うものではありません。日々のコンディション把握の目安としてご活用ください。体調や治療方針については、担当医にご相談ください。</p></div>
-<div class="filter">
-<input type="radio" name="ans-ft" id="ft0" checked><input type="radio" name="ans-ft" id="ft1"><input type="radio" name="ans-ft" id="ft2"><input type="radio" name="ans-ft" id="ft3"><input type="radio" name="ans-ft" id="ft4">
-<p class="f-ttl"><svg class="ic" aria-hidden="true" width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M198,136a6,6,0,0,1-6,6H64a6,6,0,0,1,0-12H192A6,6,0,0,1,198,136Zm34-54H24a6,6,0,0,0,0,12H232a6,6,0,0,0,0-12Zm-80,96H104a6,6,0,0,0,0,12h48a6,6,0,0,0,0-12Z"/></svg>カラダタイプ別に記事を絞り込む</p>
-<p class="f-sub">タップすると、あなた向けの記事だけが表示されます</p>
-<div class="chips"><label for="ft1"><svg class="ic" aria-hidden="true" width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M224,106H213.77a86,86,0,0,0-171.54,0H32a6,6,0,0,0-6,6,102.35,102.35,0,0,0,56,91.06V208a14,14,0,0,0,14,14h64a14,14,0,0,0,14-14v-4.94A102.35,102.35,0,0,0,230,112,6,6,0,0,0,224,106ZM174.24,54.29a74.15,74.15,0,0,1,8.15,7.6A85.89,85.89,0,0,0,130.84,106H97.34A74.24,74.24,0,0,1,168,54C170.08,54,172.17,54.11,174.24,54.29ZM190.3,72.14A73.49,73.49,0,0,1,201.74,106H144.48A73.89,73.89,0,0,1,190.3,72.14ZM128,38a73.68,73.68,0,0,1,26.8,5,86.32,86.32,0,0,0-69.94,63H54.26A74.09,74.09,0,0,1,128,38Zm37.5,155.84a6,6,0,0,0-3.5,5.46V208a2,2,0,0,1-2,2H96a2,2,0,0,1-2-2v-8.7a6,6,0,0,0-3.5-5.46A90.35,90.35,0,0,1,38.2,118H217.8A90.35,90.35,0,0,1,165.5,193.84Z"/></svg><span class="c-name">たべものエネルギー</span><span class="c-sub">食べすぎが気になる方</span></label><label for="ft2"><svg class="ic" aria-hidden="true" width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M182,184a30,30,0,0,1-30,30c-12.9,0-25.36-8.38-29.63-19.92a6,6,0,0,1,11.26-4.16C136.13,196.69,144.2,202,152,202a18,18,0,0,0,0-36H40a6,6,0,0,1,0-12H152A30,30,0,0,1,182,184ZM150,72a30,30,0,0,0-30-30c-12.9,0-25.36,8.38-29.63,19.92a6,6,0,1,0,11.26,4.16C104.13,59.31,112.2,54,120,54a18,18,0,0,1,0,36H24a6,6,0,0,0,0,12h96A30,30,0,0,0,150,72Zm58,2c-12.9,0-25.36,8.38-29.63,19.92a6,6,0,1,0,11.26,4.16C192.13,91.31,200.2,86,208,86a18,18,0,0,1,0,36H32a6,6,0,0,0,0,12H208a30,30,0,0,0,0-60Z"/></svg><span class="c-name">ストレス・巡り</span><span class="c-sub">ストレスで食べがちな方</span></label><label for="ft3"><svg class="ic" aria-hidden="true" width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M248.29,75.82l-22.58,7.33,13.95,19.21a6,6,0,1,1-9.7,7.06L216,90.21l-14,19.21a6,6,0,1,1-9.7-7.06l13.95-19.21-22.58-7.33a6,6,0,1,1,3.71-11.41L210,71.74V48a6,6,0,0,1,12,0V71.74l22.58-7.33a6,6,0,0,1,3.71,11.41ZM150,184a30,30,0,1,1-36-29.4V120a6,6,0,0,1,12,0v34.6A30.05,30.05,0,0,1,150,184Zm-12,0a18,18,0,1,0-18,18A18,18,0,0,0,138,184Zm44,0A62,62,0,1,1,82,135V48a38,38,0,0,1,76,0v87A62.06,62.06,0,0,1,182,184Zm-12,0a50.07,50.07,0,0,0-21.43-41A6,6,0,0,1,146,138V48a26,26,0,0,0-52,0v90A6,6,0,0,1,91.43,143,50,50,0,1,0,170,184Z"/></svg><span class="c-name">冷え・めぐりケア</span><span class="c-sub">冷えや凝りが気になる方</span></label><label for="ft4"><svg class="ic" aria-hidden="true" width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M221.45,40.19a6,6,0,0,0-5.64-5.64C140.43,30.11,80.14,52.71,54.53,95c-17.44,28.79-16.76,62.8,1.79,96.2L35.76,211.76a6,6,0,1,0,8.48,8.48L64.8,199.68c17.27,9.59,34.7,14.41,51.49,14.41A85.38,85.38,0,0,0,161,201.47C203.29,175.86,225.88,115.57,221.45,40.19Zm-66.66,151c-24.08,14.58-52.64,14.37-81.13-.39l90.59-90.59a6,6,0,0,0-8.48-8.48L65.18,182.34c-14.76-28.49-15-57-.39-81.13,22.68-37.43,76.63-57.8,145-54.95C212.59,114.58,192.22,168.54,154.79,191.21Z"/></svg><span class="c-name">いたわり栄養補給</span><span class="c-sub">疲れやすさが気になる方</span></label><label for="ft0" class="all"><svg class="ic" aria-hidden="true" width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M104,42H56A14,14,0,0,0,42,56v48a14,14,0,0,0,14,14h48a14,14,0,0,0,14-14V56A14,14,0,0,0,104,42Zm2,62a2,2,0,0,1-2,2H56a2,2,0,0,1-2-2V56a2,2,0,0,1,2-2h48a2,2,0,0,1,2,2Zm94-62H152a14,14,0,0,0-14,14v48a14,14,0,0,0,14,14h48a14,14,0,0,0,14-14V56A14,14,0,0,0,200,42Zm2,62a2,2,0,0,1-2,2H152a2,2,0,0,1-2-2V56a2,2,0,0,1,2-2h48a2,2,0,0,1,2,2Zm-98,34H56a14,14,0,0,0-14,14v48a14,14,0,0,0,14,14h48a14,14,0,0,0,14-14V152A14,14,0,0,0,104,138Zm2,62a2,2,0,0,1-2,2H56a2,2,0,0,1-2-2V152a2,2,0,0,1,2-2h48a2,2,0,0,1,2,2Zm94-62H152a14,14,0,0,0-14,14v48a14,14,0,0,0,14,14h48a14,14,0,0,0,14-14V152A14,14,0,0,0,200,138Zm2,62a2,2,0,0,1-2,2H152a2,2,0,0,1-2-2V152a2,2,0,0,1,2-2h48a2,2,0,0,1,2,2Z"/></svg><span class="c-name">すべての記事を見る</span></label></div>
-</div>
-<section class="step"><div class="s-head"><span class="s-no">STEP 1</span><h3>基本について知る</h3><p class="goal">土台作りを考えましょう</p></div>
-<ul class="cards">
-<li class="card-li tall"><a class="card" href="https://ans-skin.com/magazine/obesity/column001/" target="_blank" rel="noopener"><span class="fig"><img src="https://res.cloudinary.com/dvqigx5iy/image/upload/v1788317137/%E3%82%AB%E3%83%BC%E3%83%891_1_yzqhaw.png" alt="" loading="lazy"></span><span class="body"><span class="no">COLUMN 01</span><span class="ttl">【初めの一歩】目標は体重3%減でOK！</span><span class="tags"><span class="tag"><i class="dot d0"></i>全タイプ共通</span></span></span></a></li>
-<li class="card-li tall"><a class="card" href="https://ans-skin.com/magazine/obesity/column004/" target="_blank" rel="noopener"><span class="fig"><img src="https://res.cloudinary.com/dvqigx5iy/image/upload/v1788317220/%E3%82%AB%E3%83%BC%E3%83%894-1_1_buf4pz.png" alt="" loading="lazy"></span><span class="body"><span class="no">COLUMN 04</span><span class="ttl">記録は「採点表」ではなく「攻略本」</span><span class="tags"><span class="tag"><i class="dot d0"></i>全タイプ共通</span></span></span></a></li>
-<li class="card-li t1"><a class="card" href="https://ans-skin.com/magazine/obesity/column015/" target="_blank" rel="noopener"><span class="fig"><img src="https://res.cloudinary.com/dvqigx5iy/image/upload/v1788317847/%E3%82%AB%E3%83%BC%E3%83%8915-1_1_tdwtor.png" alt="" loading="lazy"></span><span class="body"><span class="no">COLUMN 15</span><span class="ttl">「もったいない」の罠 〜残り物を食べるのは節約？〜</span><span class="tags"><span class="tag"><i class="dot d1"></i>たべものエネルギー</span></span></span></a></li>
-<li class="card-li t3 t4"><a class="card" href="https://ans-skin.com/magazine/obesity/column002/" target="_blank" rel="noopener"><span class="fig"><img src="https://res.cloudinary.com/dvqigx5iy/image/upload/v1788317150/%E3%82%AB%E3%83%BC%E3%83%892_1_peew8j.png" alt="" loading="lazy"></span><span class="body"><span class="no">COLUMN 02</span><span class="ttl">コンディション維持は「一口の水分」から</span><span class="tags"><span class="tag"><i class="dot d3"></i>冷え・めぐりケア</span><span class="tag"><i class="dot d4"></i>いたわり栄養補給</span></span></span></a></li>
-</ul></section>
-<section class="step"><div class="s-head"><span class="s-no">STEP 2</span><h3>毎日の生活を整える</h3><p class="goal">毎日のクセを小さな目標から積み重ねましょう</p></div>
-<ul class="cards">
-<li class="card-li t1 t4"><a class="card" href="https://ans-skin.com/magazine/obesity/column006/" target="_blank" rel="noopener"><span class="fig"><img src="https://res.cloudinary.com/dvqigx5iy/image/upload/v1788317326/%E3%82%AB%E3%83%BC%E3%83%896_1_x7dkgb.png" alt="" loading="lazy"></span><span class="body"><span class="no">COLUMN 06</span><span class="ttl">「食べない努力」より「選ぶ工夫」を（足し算の食事）</span><span class="tags"><span class="tag"><i class="dot d1"></i>たべものエネルギー</span><span class="tag"><i class="dot d4"></i>いたわり栄養補給</span></span></span></a></li>
-<li class="card-li t1"><a class="card" href="https://ans-skin.com/magazine/obesity/column012/" target="_blank" rel="noopener"><span class="fig"><img src="https://res.cloudinary.com/dvqigx5iy/image/upload/v1788317604/%E3%82%AB%E3%83%BC%E3%83%8912-1_jz8gfx.png" alt="" loading="lazy"></span><span class="body"><span class="no">COLUMN 12</span><span class="ttl">おつまみ編は胃を守る「お守り食材」</span><span class="tags"><span class="tag"><i class="dot d1"></i>たべものエネルギー</span></span></span></a></li>
-<li class="card-li t2"><a class="card" href="https://ans-skin.com/magazine/obesity/column005/" target="_blank" rel="noopener"><span class="fig"><img src="https://res.cloudinary.com/dvqigx5iy/image/upload/v1788317304/%E3%82%AB%E3%83%BC%E3%83%895_1_km0x1g.png" alt="" loading="lazy"></span><span class="body"><span class="no">COLUMN 05</span><span class="ttl">夜の食欲、実は「脳のエネルギー不足」かも</span><span class="tags"><span class="tag"><i class="dot d2"></i>ストレス・巡り</span></span></span></a></li>
-<li class="card-li t2"><a class="card" href="https://ans-skin.com/magazine/obesity/column008/" target="_blank" rel="noopener"><span class="fig"><img src="https://res.cloudinary.com/dvqigx5iy/image/upload/v1788317423/%E3%82%AB%E3%83%BC%E3%83%898_cpyk9w.png" alt="" loading="lazy"></span><span class="body"><span class="no">COLUMN 08</span><span class="ttl">甘いものを楽しみたい編（190kcalの目安）</span><span class="tags"><span class="tag"><i class="dot d2"></i>ストレス・巡り</span></span></span></a></li>
-<li class="card-li t3 t4"><a class="card" href="https://ans-skin.com/magazine/obesity/column003/" target="_blank" rel="noopener"><span class="fig"><img src="https://res.cloudinary.com/dvqigx5iy/image/upload/v1788317196/%E3%82%AB%E3%83%BC%E3%83%893_1_jskfeb.png" alt="" loading="lazy"></span><span class="body"><span class="no">COLUMN 03</span><span class="ttl">10分の余白でNEAT（ついで運動）を意識</span><span class="tags"><span class="tag"><i class="dot d3"></i>冷え・めぐりケア</span><span class="tag"><i class="dot d4"></i>いたわり栄養補給</span></span></span></a></li>
-</ul></section>
-<section class="step"><div class="s-head"><span class="s-no">STEP 3</span><h3>こんなときどうする？</h3><p class="goal">外食・お酒・デスクワークなどシーンを見てみましょう</p></div>
-<ul class="cards">
-<li class="card-li t1 t3 t4"><a class="card" href="https://ans-skin.com/magazine/obesity/column009/" target="_blank" rel="noopener"><span class="fig"><img src="https://res.cloudinary.com/dvqigx5iy/image/upload/v1788317444/%E3%82%AB%E3%83%BC%E3%83%899_rbjmbw.png" alt="" loading="lazy"></span><span class="body"><span class="no">COLUMN 09</span><span class="ttl">ウエイトマネジメントの目安：夜の会食編</span><span class="tags"><span class="tag"><i class="dot d1"></i>たべものエネルギー</span><span class="tag"><i class="dot d3"></i>冷え・めぐりケア</span><span class="tag"><i class="dot d4"></i>いたわり栄養補給</span></span></span></a></li>
-<li class="card-li t2"><a class="card" href="https://ans-skin.com/magazine/obesity/column010/" target="_blank" rel="noopener"><span class="fig"><img src="https://res.cloudinary.com/dvqigx5iy/image/upload/v1788317464/%E3%82%AB%E3%83%BC%E3%83%8910-1_vwaj7a.png" alt="" loading="lazy"></span><span class="body"><span class="no">COLUMN 10</span><span class="ttl">ウエイトマネジメントの目安：アルコール編</span><span class="tags"><span class="tag"><i class="dot d2"></i>ストレス・巡り</span></span></span></a></li>
-<li class="card-li t3"><a class="card" href="https://ans-skin.com/magazine/obesity/column007/" target="_blank" rel="noopener"><span class="fig"><img src="https://res.cloudinary.com/dvqigx5iy/image/upload/v1788317347/%E3%82%AB%E3%83%BC%E3%83%897-2_ih8jpi.png" alt="" loading="lazy"></span><span class="body"><span class="no">COLUMN 07</span><span class="ttl">ウエイトマネジメントの目安：デスクワーク編</span><span class="tags"><span class="tag"><i class="dot d3"></i>冷え・めぐりケア</span></span></span></a></li>
-</ul></section>
-<section class="step"><div class="s-head"><span class="s-no">STEP 4</span><h3>続けるために</h3><p class="goal">停滞期や体のリズムの波があることを知りましょう</p></div>
-<ul class="cards">
-<li class="card-li tall"><a class="card" href="https://ans-skin.com/magazine/obesity/column019/" target="_blank" rel="noopener"><span class="fig"><img src="https://res.cloudinary.com/dvqigx5iy/image/upload/v1791861274/%E3%82%AB%E3%83%BC%E3%83%8919_1_kgtjlk.png" alt="" loading="lazy"></span><span class="body"><span class="no">COLUMN 19</span><span class="ttl">【4つの体質タイプ】体形と肌コンディションを繋ぐ「私の現在地」</span><span class="tags"><span class="tag"><i class="dot d0"></i>全タイプ共通</span></span></span></a></li>
-<li class="card-li t1"><a class="card" href="https://ans-skin.com/magazine/obesity/column018/" target="_blank" rel="noopener"><span class="fig"><img src="https://res.cloudinary.com/dvqigx5iy/image/upload/v1791861300/%E3%82%AB%E3%83%BC%E3%83%8918-1_1_eim1qz.png" alt="" loading="lazy"></span><span class="body"><span class="no">COLUMN 18</span><span class="ttl">数字より大切な「体のサイン」のチェック法</span><span class="tags"><span class="tag"><i class="dot d1"></i>たべものエネルギー</span></span></span></a></li>
-<li class="card-li t1 t3"><a class="card" href="https://ans-skin.com/magazine/obesity/column013/" target="_blank" rel="noopener"><span class="fig"><img src="https://res.cloudinary.com/dvqigx5iy/image/upload/v1788317757/%E3%82%AB%E3%83%BC%E3%83%8913_gvv3c2.png" alt="" loading="lazy"></span><span class="body"><span class="no">COLUMN 13</span><span class="ttl">【赤と酸味の仕込み術】夕食から始める入眠準備</span><span class="tags"><span class="tag"><i class="dot d1"></i>たべものエネルギー</span><span class="tag"><i class="dot d3"></i>冷え・めぐりケア</span></span></span></a></li>
-<li class="card-li t2"><a class="card" href="https://ans-skin.com/magazine/obesity/column014/" target="_blank" rel="noopener"><span class="fig"><img src="https://res.cloudinary.com/dvqigx5iy/image/upload/v1788317781/%E3%82%AB%E3%83%BC%E3%83%8914-1_1_kzciww.png" alt="" loading="lazy"></span><span class="body"><span class="no">COLUMN 14</span><span class="ttl">食欲が止まらないのはなぜ？男女それぞれの波</span><span class="tags"><span class="tag"><i class="dot d2"></i>ストレス・巡り</span></span></span></a></li>
-<li class="card-li t2 t4"><a class="card" href="https://ans-skin.com/magazine/obesity/column017/" target="_blank" rel="noopener"><span class="fig"><img src="https://res.cloudinary.com/dvqigx5iy/image/upload/v1788767584/%E3%82%AB%E3%83%BC%E3%83%8917_wkvi6v.png" alt="" loading="lazy"></span><span class="body"><span class="no">COLUMN 17</span><span class="ttl">無理に食事を減らす前に。夜の『温度』で整えるおやすみ時間</span><span class="tags"><span class="tag"><i class="dot d2"></i>ストレス・巡り</span><span class="tag"><i class="dot d4"></i>いたわり栄養補給</span></span></span></a></li>
-<li class="card-li t4"><a class="card" href="https://ans-skin.com/magazine/obesity/column011/" target="_blank" rel="noopener"><span class="fig"><img src="https://res.cloudinary.com/dvqigx5iy/image/upload/v1788317542/%E3%82%AB%E3%83%BC%E3%83%8911-1_pgvux6.png" alt="" loading="lazy"></span><span class="body"><span class="no">COLUMN 11</span><span class="ttl">【止まった…は順調な証拠】ベテラン管理人さん</span><span class="tags"><span class="tag"><i class="dot d4"></i>いたわり栄養補給</span></span></span></a></li>
-<li class="card-li t4"><a class="card" href="https://ans-skin.com/magazine/obesity/column016/" target="_blank" rel="noopener"><span class="fig"><img src="https://res.cloudinary.com/dvqigx5iy/image/upload/v1788317868/%E3%82%AB%E3%83%BC%E3%83%8916_2_rhzy26.png" alt="" loading="lazy"></span><span class="body"><span class="no">COLUMN 16</span><span class="ttl">多忙期は「黒の食材」に置き換え！引き算の養生</span><span class="tags"><span class="tag"><i class="dot d4"></i>いたわり栄養補給</span></span></span></a></li>
-<li class="card-li tall soon"><div class="card"><span class="fig noimg"><svg class="ic" aria-hidden="true" width="20" height="20" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="currentColor"><path d="M222,128a6,6,0,0,1-6,6H134v82a6,6,0,0,1-12,0V134H40a6,6,0,0,1,0-12h82V40a6,6,0,0,1,12,0v82h82A6,6,0,0,1,222,128Z"/></svg><b>COMING SOON</b></span><span class="body"><span class="ttl">新しい記事を準備中です</span></span></div></li>
-</ul></section>
-</div>
+</head>
+<body>
+<main class="app">
+  <header>
+    <h1>投与日チェック</h1>
+    <p class="lead">投与日の予定表と、打ち忘れ・曜日変更の目安を確認できます。</p>
+  </header>
+
+  <section class="card" aria-label="投与予定">
+    <h2 class="sec-title">投与予定を教えてください</h2>
+    <div class="fields two">
+      <div class="field">
+        <label for="planned">日付</label>
+        <div class="date-row"><span class="date-text" id="plannedDow"></span><svg class="cal" width="20" height="20" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="40" y="48" width="176" height="168" rx="8"/><path d="M168 24v32M88 24v32M40 96h176"/></svg><input type="date" id="planned"></div>
+      </div>
+      <div class="field">
+        <label for="usualTime">時刻</label>
+        <input type="time" id="usualTime">
+      </div>
+    </div>
+    <p class="hint">入っている日付と時刻は例です。ご自身の投与予定に変更してください。</p>
+    <hr class="divider">
+    <div class="guide" id="guide" aria-live="polite"></div>
+  </section>
+
+  <section class="card" aria-label="予定が変わったとき">
+    <h2 class="sec-title">予定が変わったとき</h2>
+    <p class="now-line" id="nowLine" aria-live="off"></p>
+    <input type="hidden" id="today"><input type="hidden" id="nowTime">
+    <div class="actions">
+      <button type="button" id="btnMissed" aria-pressed="false">
+        <svg width="20" height="20" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="128" cy="128" r="96"/><path d="M128 72v56l36 22"/></svg>
+        打ち忘れた
+      </button>
+      <button type="button" id="btnChange" aria-pressed="false">
+        <svg width="20" height="20" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="40" y="48" width="176" height="168" rx="8"/><path d="M168 24v32M88 24v32M40 96h176"/></svg>
+        曜日を変えたい
+      </button>
+    </div>
+    <div class="field" id="lastWrap" hidden>
+      <label for="last">前回打った日</label>
+      <div class="date-row"><span class="date-text" id="lastDow"></span><svg class="cal" width="20" height="20" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="40" y="48" width="176" height="168" rx="8"/><path d="M168 24v32M88 24v32M40 96h176"/></svg><input type="date" id="last"></div>
+      <p class="hint">通常は予定日の7日前です。実際に打った日が違うときは直してください。前回打った時刻は、上の「時刻」と同じとして判断します。</p>
+    </div>
+    <div class="result" id="result" aria-live="polite" hidden></div>
+  </section>
+
+  <section class="card" aria-label="よくある質問">
+    <a class="btn-link green" href="https://meowing-papyrus-d38.notion.site/ANS-39c20c9764f680bc9140ecd9572a2f38" target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="128" cy="128" r="96"/><path d="M96 100a32 32 0 1 1 44 30c-8 4-12 10-12 18"/><circle cx="128" cy="184" r="3"/></svg>よくある質問はこちら</a>
+  </section>
+
+  <p class="foot">参考：本ページは電子添付文書と患者向け資料「使用し忘れた場合の対応」をもとにした目安です。2回分を一度に打たないでください。判断に迷うときは、医師に相談してください。また、初回同梱のパンフレットP18でもご確認いただくことが可能です。</p>
+</main>
+
 <script>
-(function(){
-  document.querySelectorAll('.ans-toc3').forEach(function(root){
-    var ck=root.querySelector('.check'); if(!ck) return;
-    var start=ck.querySelector('.c-start'), quiz=ck.querySelector('.c-quiz'), result=ck.querySelector('.c-result');
-    var qs=ck.querySelectorAll('.q'), bar=ck.querySelector('.bar i'), back=ck.querySelector('.js-back');
-    var NAMES={1:'たべものエネルギー',2:'ストレス・巡り',3:'冷え・めぐりケア',4:'いたわり栄養補給'};
-    var ans=[], cur=0, top=1;
-    function show(i){cur=i;qs.forEach(function(q,k){q.hidden=(k!==i);});bar.style.width=((i+1)/qs.length*100)+'%';back.hidden=(i===0);}
-    function begin(){ans=[];start.hidden=true;result.hidden=true;quiz.hidden=false;show(0);}
-    function finish(){
-      var sc={1:0,2:0,3:0,4:0}; ans.forEach(function(t){sc[t]++;});
-      var max=Math.max(sc[1],sc[2],sc[3],sc[4]);
-      var tied=[1,2,3,4].filter(function(t){return sc[t]===max;});
-      top = tied.indexOf(ans[0])>-1 ? ans[0] : tied[0];
-      var others=tied.filter(function(t){return t!==top;});
-      quiz.hidden=true; result.hidden=false;
-      result.querySelectorAll('.r').forEach(function(r){
-        var on=(+r.getAttribute('data-r')===top); r.hidden=!on;
-        var sub=r.querySelector('.r-sub');
-        if(on && others.length){sub.textContent='「'+others.map(function(t){return NAMES[t];}).join('」「')+'」タイプの傾向も同じくらいあります';sub.hidden=false;} else {sub.hidden=true;}
-      });
-      ck.scrollIntoView({behavior:'smooth',block:'start'});
+(function () {
+  var DOW = ['日', '月', '火', '水', '木', '金', '土'];
+  var MS = 86400000;
+  var $ = function (id) { return document.getElementById(id); };
+  var nowEl = $('nowTime'), usualEl = $('usualTime');
+  var todayEl = $('today'), plannedEl = $('planned'), lastEl = $('last'), lastWrap = $('lastWrap');
+  var resultEl = $('result'), btnMissed = $('btnMissed'), btnChange = $('btnChange');
+  var guideEl = $('guide'), gpage = 0;
+  var mode = null, lastTouched = false, picked = null;
+
+  function parse(s) { if (!s) return null; var p = s.split('-').map(Number); return new Date(Date.UTC(p[0], p[1] - 1, p[2])); }
+  function iso(d) { return d.toISOString().slice(0, 10); }
+  function add(d, n) { return new Date(d.getTime() + n * MS); }
+  function diff(a, b) { return Math.round((a.getTime() - b.getTime()) / MS); }
+  function pt(s) { if (!s) return null; var p = s.split(':').map(Number); return p[0] * 60 + p[1]; }
+  function hm(s) { return s; }
+  function fmt(d) { return (d.getUTCMonth() + 1) + '/' + d.getUTCDate() + '(' + DOW[d.getUTCDay()] + ')'; }
+  function p2(n) { return ('0' + n).slice(-2); }
+  function dateText(d) { return d.getUTCFullYear() + '/' + p2(d.getUTCMonth() + 1) + '/' + p2(d.getUTCDate()) + '<span class="dow">（' + DOW[d.getUTCDay()] + '）</span>'; }
+  function wd(d) { return DOW[d.getUTCDay()] + '曜日'; }
+  function esc(s) { return String(s).replace(/[&<>"]/g, function (c) { return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[c]; }); }
+
+  var ICON = {
+    ok: '<svg width="24" height="24" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="128" cy="128" r="96"/><path d="m88 136 28 28 52-56"/></svg>',
+    warn: '<svg width="24" height="24" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M114 40 24 196a16 16 0 0 0 14 24h180a16 16 0 0 0 14-24L142 40a16 16 0 0 0-28 0Z"/><path d="M128 104v48"/><circle cx="128" cy="184" r="3"/></svg>',
+    skip: '<svg width="24" height="24" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="128" cy="128" r="96"/><path d="m96 96 64 64M160 96l-64 64"/></svg>',
+    info: '<svg width="24" height="24" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="128" cy="128" r="96"/><path d="M120 120a8 8 0 0 1 8 8v40a8 8 0 0 0 8 8"/><circle cx="124" cy="84" r="3"/></svg>'
+  };
+
+  function banner(kind, title, body) {
+    return '<div class="banner ' + kind + '" role="status">' + ICON[kind] + '<div><h2>' + title + '</h2>' + (body ? '<p>' + body + '</p>' : '') + '</div></div>';
+  }
+  function upcoming(start, count, label) {
+    var h = '<p class="sub-h">' + label + '</p><ul class="upcoming">';
+    for (var i = 0; i < count; i++) h += '<li>' + fmt(add(start, 7 * i)) + '</li>';
+    return h + '</ul>';
+  }
+
+  function strip(P, T) {
+    var cls = ['plan', 'good', 'good', 'good', 'edge', 'bad', 'bad', 'next'];
+    var tags = ['予定', 'OK', 'OK', 'OK', '境目', '不可', '不可', '次回'];
+    var h = '<div class="strip" role="img" aria-label="予定日から次回予定日までの8日間。予定日の翌日から3日後まではすぐに打てます。4日後が境目。5日後と6日後は打てません。">';
+    var i, d, inRange = -1;
+    for (i = 0; i < 8; i++) {
+      d = add(P, i);
+      if (T && diff(T, P) === i) inRange = i;
+      h += '<div class="cell ' + cls[i] + '"><span class="w">' + DOW[d.getUTCDay()] + '</span><span class="n">' + d.getUTCDate() + '</span><span class="t">' + tags[i] + '</span></div>';
     }
-    ck.querySelector('.js-start').addEventListener('click',begin);
-    ck.querySelector('.js-retry').addEventListener('click',begin);
-    back.addEventListener('click',function(){if(cur>0){ans.pop();show(cur-1);}});
-    ck.querySelectorAll('.opt').forEach(function(b){b.addEventListener('click',function(){
-      ans[cur]=+b.getAttribute('data-t'); if(cur<qs.length-1){show(cur+1);} else {finish();}
-    });});
-    ck.querySelector('.js-show').addEventListener('click',function(){
-      var r=root.querySelector('#ft'+top); if(r){r.checked=true;}
-      var s=root.querySelector('.steps'); if(s){s.scrollIntoView({behavior:'smooth',block:'start'});}
-    });
+    h += '</div>';
+    h += '<div class="strip-today" aria-hidden="true">';
+    for (i = 0; i < 8; i++) h += '<div class="tag-today">' + (i === inRange ? '▲今日' : '&nbsp;') + '</div>';
+    h += '</div>';
+    h += '<ul class="legend"><li><i style="background:var(--ok-bg);border-color:var(--ok)"></i>すぐ打てる</li><li><i style="background:var(--warn-bg);border-color:var(--warn-edge)"></i>境目(時刻による)</li><li><i style="background:var(--alert-bg);border-color:var(--alert)"></i>スキップ</li></ul>';
+    return h;
+  }
+
+  function renderMissed(T, P) {
+    var d = diff(T, P), N = add(P, 7), deadline = add(P, 4), h = '';
+    if (d < 0) {
+      h += banner('info', 'まだ予定日の前です', '予定日は ' + fmt(P) + ' です。打ち忘れではありません。');
+    } else if (d <= 3) {
+      h += banner('ok', '今日 ' + fmt(T) + ' に打てます', '気づいた時点ですぐに打ち、次回からは元の曜日(' + wd(N) + ')に戻します。');
+    } else if (d === 4) {
+      var tn = pt(nowEl.value), tu = pt(usualEl.value);
+      if (tn !== null && tu !== null) {
+        if (tn <= tu) h += banner('ok', '今(' + nowEl.value + ')なら打てます', '期限は今日 ' + usualEl.value + ' です。気づいた時点ですぐに打ち、次回からは元の曜日(' + wd(N) + ')に戻します。');
+        else h += banner('skip', '期限の ' + usualEl.value + ' を過ぎています', '次の予定日 ' + fmt(N) + ' まで3日(72時間)を切っています。今回分は打たず、' + fmt(N) + ' に通常どおり打ってください。');
+      } else {
+        h += banner('warn', '今日が境目です', '「今の時刻」と「打つ予定時刻」を入力すると判定します。打つ予定時刻までなら打てます。');
+      }
+    } else {
+      h += banner('skip', '今回はスキップしてください', '次の予定日 ' + fmt(N) + ' まで3日(72時間)を切っています。今回分は打たず、' + fmt(N) + ' に通常どおり打ってください。');
+    }
+    h += strip(P, T);
+    h += '<dl class="facts"><dt>打つ予定だった日</dt><dd>' + fmt(P) + '</dd><dt>打てる期限</dt><dd>' + fmt(deadline) + (usualEl.value ? ' ' + usualEl.value + ' まで' : ' のいつもの時刻まで') + '</dd><dt>次の予定日</dt><dd>' + fmt(N) + '</dd></dl>';
+    h += upcoming(d < 0 ? P : N, 3, 'この先の予定(毎週' + wd(P) + ')');
+    return h;
+  }
+
+  function renderChange(T, P, L) {
+    var min = add(L, 3), earliest = min.getTime() >= T.getTime() ? min : T;
+    var capped = earliest.getTime() === T.getTime() && T.getTime() > min.getTime();
+    var h = '';
+    if (min.getTime() > T.getTime()) {
+      h += banner('warn', '今日はまだ変更できません', '前回 ' + fmt(L) + ' から3日(72時間)あける必要があります。最短は ' + fmt(min) + (usualEl.value ? ' の ' + usualEl.value + ' 以降' : '') + ' です。');
+    } else if (min.getTime() === T.getTime() && pt(nowEl.value) !== null && pt(usualEl.value) !== null && pt(nowEl.value) < pt(usualEl.value)) {
+      h += banner('warn', '今日は ' + usualEl.value + ' 以降に変更できます', '前回 ' + fmt(L) + ' からちょうど3日です。今は ' + nowEl.value + ' なので、' + usualEl.value + ' まで待ってください。');
+    } else {
+      h += banner('ok', '今日から変更できます', '前回 ' + fmt(L) + ' から3日(72時間)以上たっています。新しい曜日を選んでください。');
+    }
+    var cands = [], i, c;
+    for (i = 0; i < 7; i++) cands.push(add(earliest, i));
+    if (!picked || cands.every(function (x) { return iso(x) !== picked; })) picked = iso(cands[0]);
+    h += '<p class="sub-h">打つ日を選ぶ</p><div class="chips">';
+    for (i = 0; i < 7; i++) {
+      c = cands[i];
+      var late = diff(c, P) > 4;
+      var sub = i === 0 ? '最短' : (late ? '要確認' : '&nbsp;');
+      h += '<button type="button" data-d="' + iso(c) + '" aria-pressed="' + (iso(c) === picked) + '">' + fmt(c) + '<small>' + sub + '</small></button>';
+    }
+    h += '</div>';
+    var sel = parse(picked), notes = [];
+    notes.push('前回 ' + fmt(L) + ' から ' + diff(sel, L) + '日あくため、3日(72時間)以上の条件を満たします。');
+    if (diff(sel, L) === 3) notes.push('3日ちょうどの日です。前回打った時刻' + (usualEl.value ? '(' + usualEl.value + ')' : '') + 'と同じか、それ以降に打ってください。');
+    if (diff(sel, P) > 4) notes.push('予定日 ' + fmt(P) + ' から4日を超えます。打ち忘れ扱いになるため、医師または薬剤師に相談してください。');
+    notes.push('変更後は、新しい曜日で毎週続けます。');
+    h += '<dl class="facts"><dt>新しい投与日</dt><dd>' + fmt(sel) + '</dd><dt>以降の曜日</dt><dd>毎週' + wd(sel) + '</dd></dl>';
+    h += '<ul class="notes">' + notes.map(function (n) { return '<li>' + esc(n) + '</li>'; }).join('') + '</ul>';
+    h += upcoming(add(sel, 7), 2, 'その後の予定');
+    return h;
+  }
+
+  function ymd(d) { return d.getUTCFullYear() + p2(d.getUTCMonth() + 1) + p2(d.getUTCDate()); }
+  function tfmt(t) { return t ? t.replace(':', '：') : ''; }
+  function plain(d) { return d.getUTCFullYear() + '/' + p2(d.getUTCMonth() + 1) + '/' + p2(d.getUTCDate()) + '（' + DOW[d.getUTCDay()] + '）' + (usualEl.value ? tfmt(usualEl.value) : ''); }
+  function stamp(d, min) { return ymd(d) + 'T' + p2(Math.floor(min / 60)) + p2(min % 60) + '00'; }
+  function calUrl(start, depth) {
+    var i, lines = [], tmin = pt(usualEl.value);
+    for (i = 0; i < 4; i++) lines.push(plain(add(start, 7 * i)));
+    var desc = '🗓️' + wd(start) + 'コース\n' + lines.join('\n');
+    var dates;
+    if (tmin === null) { dates = ymd(start) + '/' + ymd(add(start, 1)); }
+    else {
+      var em = tmin + 30, ed = start;
+      if (em >= 1440) { em -= 1440; ed = add(start, 1); }
+      dates = stamp(start, tmin) + '/' + stamp(ed, em);
+    }
+    return 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=' + encodeURIComponent('投与日') + '&dates=' + dates + '&ctz=Asia%2FTokyo&recur=' + encodeURIComponent('RRULE:FREQ=WEEKLY;COUNT=4') + '&details=' + encodeURIComponent(desc);
+  }
+  function renderGuide(T, P) {
+    var gap = diff(T, P);
+    var first = gap > 0 ? add(P, 7 * Math.ceil(gap / 7)) : P;
+    var start = add(first, 28 * gpage), i, h = '';
+    h += '<h3 class="guide-title">🗓️' + wd(P) + 'に決定！</h3>';
+    h += '<ul class="dose-list">';
+    for (i = 0; i < 4; i++) h += '<li>' + dateText(add(start, 7 * i)) + (usualEl.value ? '<span class="tm">' + tfmt(usualEl.value) + '</span>' : '') + '</li>';
+    h += '</ul>';
+    h += '<div class="pager"><button type="button" data-g="-1"' + (gpage === 0 ? ' disabled' : '') + '>前の4回分</button><button type="button" data-g="1">次の4回分</button></div>';
+    h += '<p class="cal-link">Googleカレンダーをお持ちの方は登録可能です。</p>';
+    h += '<a class="btn-link" href="' + calUrl(start, 2) + '" target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="40" y="48" width="176" height="168" rx="8"/><path d="M168 24v32M88 24v32M40 96h176"/></svg>Googleカレンダーに登録</a>';
+    return h;
+  }
+
+  function render() {
+    var T = parse(todayEl.value), P = parse(plannedEl.value);
+    var isChange = mode === 'change';
+    lastWrap.hidden = !isChange;
+    resultEl.hidden = !mode;
+    btnMissed.setAttribute('aria-pressed', String(mode === 'missed'));
+    btnChange.setAttribute('aria-pressed', String(isChange));
+    ['planned', 'last'].forEach(function (k) { var dt = parse($(k).value); $(k + 'Dow').innerHTML = dt ? dateText(dt) : '<span class="ph">日付を選んでください</span>'; });
+    if (!P) {
+      guideEl.innerHTML = '<p class="hint">投与予定の日付を選ぶと、4回分の予定が表示されます。</p>';
+    } else if (T) {
+      guideEl.innerHTML = renderGuide(T, P);
+    }
+    if (!mode) return;
+    if (!T || !P) { resultEl.innerHTML = banner('info', '投与予定の日付を入力してください', '上の「投与予定を教えてください」に日付を入れると結果が出ます。'); return; }
+    if (isChange) {
+      if (!lastTouched) lastEl.value = iso(add(P, -7));
+      var L = parse(lastEl.value);
+      $('lastDow').innerHTML = L ? dateText(L) : '<span class="ph">日付を選んでください</span>';
+      if (!L) { resultEl.innerHTML = banner('info', '前回打った日を入力してください', ''); return; }
+      resultEl.innerHTML = renderChange(T, P, L);
+    } else {
+      resultEl.innerHTML = renderMissed(T, P);
+    }
+  }
+
+  function autoFill() {
+    var n = new Date();
+    if (true) todayEl.value = iso(new Date(Date.UTC(n.getFullYear(), n.getMonth(), n.getDate())));
+    nowEl.value = ('0' + n.getHours()).slice(-2) + ':' + ('0' + n.getMinutes()).slice(-2);
+    $('nowLine').innerHTML = '今日 <b>' + fmt(parse(todayEl.value)) + '</b> ・ 今の時刻 <b>' + nowEl.value + '</b>';
+  }
+  autoFill();
+  var today = parse(todayEl.value);
+  usualEl.value = '14:00';
+  plannedEl.value = iso(add(today, -2));
+  lastEl.value = iso(add(today, -9));
+
+  [plannedEl, lastEl].forEach(function (el) {
+    el.addEventListener('click', function () { try { if (el.showPicker) el.showPicker(); } catch (e) {} });
   });
+  function refreshClock() { autoFill(); render(); }
+  setInterval(refreshClock, 30000);
+  document.addEventListener('visibilitychange', function () { if (!document.hidden) refreshClock(); });
+  usualEl.addEventListener('input', render);
+  plannedEl.addEventListener('input', function () { picked = null; gpage = 0; render(); });
+  lastEl.addEventListener('input', function () { lastTouched = true; picked = null; render(); });
+  btnMissed.addEventListener('click', function () { mode = 'missed'; render(); });
+  btnChange.addEventListener('click', function () { mode = 'change'; render(); });
+  guideEl.addEventListener('click', function (e) {
+    var g = e.target.closest ? e.target.closest('button[data-g]') : null;
+    if (g && !g.disabled) { gpage = Math.max(0, gpage + Number(g.getAttribute('data-g'))); render(); }
+  });
+  resultEl.addEventListener('click', function (e) {
+    var b = e.target.closest ? e.target.closest('button[data-d]') : null;
+    if (b) { picked = b.getAttribute('data-d'); render(); }
+  });
+  render();
 })();
-</script></body></html>
+</script>
+
+</body>
+</html>
