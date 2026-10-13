@@ -387,6 +387,9 @@ button svg { flex: none; }
   plannedEl.value = iso(add(today, -2));
   lastEl.value = iso(add(today, -9));
 
+  [plannedEl, lastEl].forEach(function (el) {
+    el.addEventListener('click', function () { try { if (el.showPicker) el.showPicker(); } catch (e) {} });
+  });
   function refreshClock() { autoFill(); render(); }
   setInterval(refreshClock, 30000);
   document.addEventListener('visibilitychange', function () { if (!document.hidden) refreshClock(); });
