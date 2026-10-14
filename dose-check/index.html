@@ -60,13 +60,19 @@ h1 { font-size: 24px; line-height: 1.2; font-weight: 700; margin: 0; text-wrap: 
 .field { display: flex; flex-direction: column; gap: var(--xxs); min-width: 0; }
 label, .label { font-size: 12px; line-height: 1.5; font-weight: 700; color: var(--fg-sub); }
 input[type="date"], input[type="time"] { font: inherit; font-size: 16px; font-weight: 500; color: var(--fg); background: var(--surface); border: 1px solid var(--border); border-radius: 8px; height: 48px; padding-inline: var(--sm); width: 100%; min-width: 0; }
+input[type="time"] { display: block; -webkit-appearance: none; appearance: none; width: 100%; min-width: 0; max-width: 100%; margin: 0; text-align: left; line-height: 1.4; }
+input[type="time"]::-webkit-date-and-time-value { text-align: left; min-height: 1.4em; margin: 0; }
+input[type="time"]::-webkit-datetime-edit { padding: 0; }
+.field { min-width: 0; max-width: 100%; }
+.fields.two { grid-template-columns: minmax(0, 1fr); }
+
 .date-row { position: relative; display: flex; align-items: center; gap: var(--xs); min-width: 0; height: 48px; border: 1px solid var(--border); border-radius: 8px; background: var(--surface); padding-inline: var(--sm); }
 .date-row:focus-within { outline: 3px solid var(--focus); outline-offset: 2px; }
 .date-text { flex: 1 1 auto; font-size: 16px; line-height: 1.4; font-weight: 500; font-variant-numeric: tabular-nums; pointer-events: none; }
 .date-text .ph { color: var(--fg-sub); }
 .dow { color: var(--primary-text); font-weight: 700; }
 .cal { flex: none; color: var(--fg-sub); pointer-events: none; }
-.date-row input { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; border: 0; padding: 0; font-size: 16px; }
+.date-row input { -webkit-appearance: none; appearance: none; min-width: 0; max-width: 100%; margin: 0; position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; border: 0; padding: 0; font-size: 16px; }
 .now-line { margin: 0; font-size: 14px; line-height: 1.6; color: var(--fg-sub); font-variant-numeric: tabular-nums; }
 .now-line b { color: var(--fg); font-size: 16px; }
 .actions button { font-size: 15px; padding-inline: var(--xs); min-width: 0; }
@@ -142,7 +148,7 @@ button svg { flex: none; }
   .banner { padding: var(--sm); }
   .pager button { font-size: 13px; padding-inline: var(--xs); }
 }
-@media (min-width: 440px) { .fields.two { grid-template-columns: 1fr 1fr; } }
+@media (min-width: 440px) { .fields.two { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 .sec-title { margin: 0; font-size: 18px; line-height: 1.4; font-weight: 700; }
 .guide-title { margin: 0; font-size: 20px; line-height: 1.4; font-weight: 700; }
 .guide { display: flex; flex-direction: column; gap: var(--md); min-width: 0; }
@@ -168,7 +174,7 @@ button svg { flex: none; }
       </div>
       <div class="field">
         <label for="usualTime">時刻</label>
-        <input type="time" id="usualTime">
+        <div class="date-row"><span class="date-text" id="usualTimeText"></span><svg class="cal" width="20" height="20" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="128" cy="128" r="96"/><path d="M128 72v56l36 22"/></svg><input type="time" id="usualTime"></div>
       </div>
     </div>
     <p class="hint">入っている日付と時刻は例です。ご自身の投与予定に変更してください。</p>
@@ -356,6 +362,7 @@ button svg { flex: none; }
     resultEl.hidden = !mode;
     btnMissed.setAttribute('aria-pressed', String(mode === 'missed'));
     btnChange.setAttribute('aria-pressed', String(isChange));
+    $('usualTimeText').innerHTML = usualEl.value ? tfmt(usualEl.value) : '<span class="ph">時刻を選んでください</span>';
     ['planned', 'last'].forEach(function (k) { var dt = parse($(k).value); $(k + 'Dow').innerHTML = dt ? dateText(dt) : '<span class="ph">日付を選んでください</span>'; });
     if (!P) {
       guideEl.innerHTML = '<p class="hint">投与予定の日付を選ぶと、4回分の予定が表示されます。</p>';
@@ -387,7 +394,7 @@ button svg { flex: none; }
   plannedEl.value = iso(add(today, -2));
   lastEl.value = iso(add(today, -9));
 
-  [plannedEl, lastEl].forEach(function (el) {
+  [plannedEl, lastEl, usualEl].forEach(function (el) {
     el.addEventListener('click', function () { try { if (el.showPicker) el.showPicker(); } catch (e) {} });
   });
   function refreshClock() { autoFill(); render(); }
