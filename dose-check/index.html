@@ -206,6 +206,8 @@ button, .btn-link { border-radius: 14px; }
   .hero h1 { font-size: 26px; }
   .card { padding: 16px; border-radius: 20px; }
 }
+
+.cal-note{font-size:11px;margin:8px 0 0}
 </style>
 
 <header class="hero">
@@ -405,7 +407,7 @@ button, .btn-link { border-radius: 14px; }
     h += '</ul>';
     h += '<div class="pager"><button type="button" data-g="-1"' + (gpage === 0 ? ' disabled' : '') + '>前の4回分</button><button type="button" data-g="1">次の4回分</button></div>';
     h += '<p class="cal-link">Googleカレンダーをお持ちの方は登録可能です。</p>';
-    h += '<a class="btn-link" href="' + calUrl(start, 2) + '" target="' + (window.top !== window.self ? '_blank' : '_self') + '" rel="noopener"><svg width="20" height="20" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="40" y="48" width="176" height="168" rx="8"/><path d="M168 24v32M88 24v32M40 96h176"/></svg>Googleカレンダーに登録</a>';
+    h += '<a class="btn-link" href="' + calUrl(start, 2) + '" target="' + (window.top !== window.self ? '_blank' : '_self') + '" rel="noopener"><svg width="20" height="20" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="40" y="48" width="176" height="168" rx="8"/><path d="M168 24v32M88 24v32M40 96h176"/></svg>Googleカレンダーに登録</a><p class="hint cal-note">※お使いの端末やアプリのバージョンによっては、登録画面が開かないことがあります。その場合はスマホのブラウザ（Safari・Chromeなど）でお試しください。</p>';
     return h;
   }
 
