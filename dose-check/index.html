@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>投与日チェック</title>
 
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@500;700&family=Jost:wght@500&display=swap">
 <style>
 body { margin: 0; }
 /* Layout: one narrow column, input card on top, result card below. Phone first. */
@@ -155,18 +155,72 @@ button svg { flex: none; }
 .dose-list .tm { margin-left: var(--xs); }
 .result { display: flex; flex-direction: column; gap: var(--md); min-width: 0; }
 .divider { border: 0; border-top: 1px solid var(--border); margin: 0; }
+
+/* ---- Soft peach redesign ---- */
+:root {
+  --bg: #F7F5F2; --surface: #FFFFFF; --surface-2: #FFF1EA; --border: #EADFD6;
+  --fg: #3A2E28; --fg-sub: #7A6A5F; --label: #8F7461; --wave-line: rgba(255,255,255,.55);
+  --hero-a: #FF9566; --hero-b: #F4B8A0; --card-edge: #FFC8B4; --shadow: rgba(255,110,50,.10);
+  --font-en: "Jost", "Noto Sans JP", sans-serif;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1C1816; --surface: #272220; --surface-2: #35291F; --border: #4A3F38;
+    --fg: #FAF4EF; --fg-sub: #C9B8AC; --label: #C4A895; --wave-line: rgba(255,255,255,.22);
+    --hero-a: #B8532B; --hero-b: #6F3B2B; --card-edge: #7A4A38; --shadow: rgba(0,0,0,.35);
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #1C1816; --surface: #272220; --surface-2: #35291F; --border: #4A3F38;
+  --fg: #FAF4EF; --fg-sub: #C9B8AC; --label: #C4A895; --wave-line: rgba(255,255,255,.22);
+  --hero-a: #B8532B; --hero-b: #6F3B2B; --card-edge: #7A4A38; --shadow: rgba(0,0,0,.35);
+}
+body { padding-inline: 0; padding-block: 0 40px; }
+.app { max-width: 520px; padding-inline: 16px; padding-top: 4px; gap: 14px; }
+.hero { position: relative; text-align: center; color: #fff; padding: 36px 16px 76px; background: linear-gradient(165deg, var(--hero-a) 0%, var(--hero-b) 100%); }
+.hero .pill { display: inline-block; font-family: var(--font-en); font-size: 11px; line-height: 1.4; letter-spacing: .18em; text-transform: uppercase; padding: 6px 16px; border: 1px solid rgba(255,255,255,.6); border-radius: 999px; color: #fff; }
+.hero h1 { color: #fff; font-size: 30px; line-height: 1.25; font-weight: 500; letter-spacing: .02em; margin: 18px 0 10px; text-wrap: balance; }
+.hero .lead { color: rgba(255,255,255,.94); font-size: 13px; max-width: 30em; margin: 0 auto; }
+.wave { position: absolute; left: 0; right: 0; bottom: -1px; width: 100%; height: 44px; display: block; }
+.section-label { display: flex; align-items: center; gap: 12px; margin: 14px 0 -4px 4px; font-size: 12px; line-height: 1.5; font-weight: 700; letter-spacing: .12em; color: var(--label); }
+.section-label::after { content: ""; flex: 1; height: 1px; background: linear-gradient(90deg, var(--border), transparent); }
+.card { border: 1px solid var(--border); border-radius: 24px; padding: 20px; box-shadow: 0 10px 28px var(--shadow); background: var(--surface); }
+.card-input { border: 1.5px solid var(--card-edge); box-shadow: 0 14px 34px var(--shadow); }
+.faq { display: flex; flex-direction: column; margin-top: 6px; }
+label { font-size: 12px; letter-spacing: .04em; }
+.date-row, input[type="date"], input[type="time"] { border-radius: 14px; }
+.date-row { height: 52px; background: var(--surface); }
+.date-text { font-size: 17px; }
+button, .btn-link { border-radius: 14px; }
+.actions button { min-height: 56px; }
+.banner { border-radius: 16px; }
+.dose-list li { border-radius: 16px; background: var(--surface-2); padding: 14px 18px; font-size: 17px; }
+.dose-list .tm { color: var(--primary-text); }
+.guide-title { font-size: 20px; }
+.cell { border-radius: 10px; }
+.upcoming li { border-radius: 12px; background: var(--surface-2); }
+.pager button { border-radius: 14px; }
+@media (max-width: 380px) {
+  body { padding-inline: 0; }
+  .app { padding-inline: 12px; }
+  .hero { padding: 28px 12px 68px; }
+  .hero h1 { font-size: 26px; }
+  .card { padding: 16px; border-radius: 20px; }
+}
 </style>
 
 </head>
 <body>
-<main class="app">
-  <header>
-    <h1>投与日チェック</h1>
-    <p class="lead">投与日の予定表と、打ち忘れ・曜日変更の目安を確認できます。</p>
-  </header>
+<header class="hero">
+  <span class="pill">ANS. Obesity Management</span>
+  <h1>ANS. 投与日チェック</h1>
+  <p class="lead">投与日の予定表と、打ち忘れ・曜日変更の目安を確認できます。</p>
+  <svg class="wave" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true"><path d="M0,44 C320,92 1060,-6 1440,52 L1440,80 L0,80 Z" style="fill:var(--bg)"/><path d="M0,44 C320,92 1060,-6 1440,52" fill="none" style="stroke:var(--wave-line)" stroke-width="1.5"/></svg>
+</header>
 
-  <section class="card" aria-label="投与予定">
-    <h2 class="sec-title">投与予定を教えてください</h2>
+<main class="app">
+  <p class="section-label">投与予定を教えてください</p>
+  <section class="card card-input" aria-label="投与予定">
     <div class="fields two">
       <div class="field">
         <label for="planned">日付</label>
@@ -178,12 +232,15 @@ button svg { flex: none; }
       </div>
     </div>
     <p class="hint">入っている日付と時刻は例です。ご自身の投与予定に変更してください。</p>
-    <hr class="divider">
+  </section>
+
+  <p class="section-label">投与日ガイド</p>
+  <section class="card" aria-label="投与日ガイド">
     <div class="guide" id="guide" aria-live="polite"></div>
   </section>
 
+  <p class="section-label">予定が変わったとき</p>
   <section class="card" aria-label="予定が変わったとき">
-    <h2 class="sec-title">予定が変わったとき</h2>
     <p class="now-line" id="nowLine" aria-live="off"></p>
     <input type="hidden" id="today"><input type="hidden" id="nowTime">
     <div class="actions">
@@ -204,7 +261,7 @@ button svg { flex: none; }
     <div class="result" id="result" aria-live="polite" hidden></div>
   </section>
 
-  <section class="card" aria-label="よくある質問">
+  <section class="faq" aria-label="よくある質問">
     <a class="btn-link green" href="https://meowing-papyrus-d38.notion.site/ANS-39c20c9764f680bc9140ecd9572a2f38" target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="128" cy="128" r="96"/><path d="M96 100a32 32 0 1 1 44 30c-8 4-12 10-12 18"/><circle cx="128" cy="184" r="3"/></svg>よくある質問はこちら</a>
   </section>
 
