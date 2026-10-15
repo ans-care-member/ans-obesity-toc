@@ -218,7 +218,7 @@ button, .btn-link { border-radius: 14px; }
 </header>
 
 <main class="app">
-  <p class="section-label">投与予定を教えてください</p>
+  <p class="section-label">投与開始日を選択してください</p>
   <section class="card card-input" aria-label="投与予定">
     <div class="fields two">
       <div class="field">
@@ -261,7 +261,7 @@ button, .btn-link { border-radius: 14px; }
   </section>
 
   <section class="faq" aria-label="よくある質問">
-    <a class="btn-link green" href="https://meowing-papyrus-d38.notion.site/ANS-39c20c9764f680bc9140ecd9572a2f38" target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="128" cy="128" r="96"/><path d="M96 100a32 32 0 1 1 44 30c-8 4-12 10-12 18"/><circle cx="128" cy="184" r="3"/></svg>よくある質問はこちら</a>
+    <a class="btn-link green" href="https://meowing-papyrus-d38.notion.site/ANS-39c20c9764f680bc9140ecd9572a2f38?utm_source=line&amp;utm_medium=internal_link&amp;utm_campaign=obesity_inject_faq" target="_blank" rel="noopener"><svg width="20" height="20" viewBox="0 0 256 256" fill="none" stroke="currentColor" stroke-width="14" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="128" cy="128" r="96"/><path d="M96 100a32 32 0 1 1 44 30c-8 4-12 10-12 18"/><circle cx="128" cy="184" r="3"/></svg>よくある質問はこちら</a>
   </section>
 
   <p class="foot">参考：本ページは電子添付文書と患者向け資料「使用し忘れた場合の対応」をもとにした目安です。2回分を一度に打たないでください。判断に迷うときは、医師に相談してください。また、初回同梱のパンフレットP18でもご確認いただくことが可能です。</p>
@@ -395,7 +395,7 @@ button, .btn-link { border-radius: 14px; }
       if (em >= 1440) { em -= 1440; ed = add(start, 1); }
       dates = stamp(start, tmin) + '/' + stamp(ed, em);
     }
-    return 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=' + encodeURIComponent('投与日') + '&dates=' + dates + '&ctz=Asia%2FTokyo&recur=' + encodeURIComponent('RRULE:FREQ=WEEKLY;COUNT=4') + '&details=' + encodeURIComponent(desc);
+    return 'https://calendar.google.com/calendar/render?action=TEMPLATE&text=' + encodeURIComponent('投与日') + '&dates=' + dates + '&ctz=Asia%2FTokyo&recur=' + encodeURIComponent('RRULE:FREQ=WEEKLY;COUNT=4') + '&details=' + encodeURIComponent(desc) + '&utm_source=line&utm_medium=internal_link&utm_campaign=obesity_inject_calender';
   }
   function renderGuide(T, P) {
     var gap = diff(T, P);
@@ -426,7 +426,7 @@ button, .btn-link { border-radius: 14px; }
       guideEl.innerHTML = renderGuide(T, P);
     }
     if (!mode) return;
-    if (!T || !P) { resultEl.innerHTML = banner('info', '投与予定の日付を入力してください', '上の「投与予定を教えてください」に日付を入れると結果が出ます。'); return; }
+    if (!T || !P) { resultEl.innerHTML = banner('info', '投与予定の日付を入力してください', '上の「投与開始日を選択してください」に日付を入れると結果が出ます。'); return; }
     if (isChange) {
       if (!lastTouched) lastEl.value = iso(add(P, -7));
       var L = parse(lastEl.value);
